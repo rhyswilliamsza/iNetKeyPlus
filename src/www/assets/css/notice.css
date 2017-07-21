@@ -1,0 +1,60 @@
+notice {
+    position: absolute;
+    background-color: #363636;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#noticetitle {
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    color: white;
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#onenotice {
+    position: absolute;
+    width: 100%;
+    animation: rotate 1s alternate infinite;
+}
+
+#twonotice {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    width: 84%;
+    animation: rotate 1.05s alternate infinite;
+}
+
+#threenotice {
+    position: absolute;
+    top: 16%;
+    left: 16%;
+    width: 68%;
+    animation: rotate 1.1s alternate infinite;
+}
+
+#noticeContainer {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
