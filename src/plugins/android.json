@@ -7,16 +7,16 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-background-mode": {
             "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
         },
-      "cordova-plugin-background-mode": {
-        "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
         }
     },
-  "dependent_plugins": {
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
+    "dependent_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
+        }
     }
-  }
 }
