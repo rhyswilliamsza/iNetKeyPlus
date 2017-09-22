@@ -3,25 +3,54 @@
 <script src="assets/js/jquery.xmlrpc.min.js"></script>
 <script src="assets/js/connectionManager.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/notice.css"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-px">
 <script>
+    var username = "";
+    var password = "";
     window.onload = function () {
         showNotice("Welcome", "#2980b9");
+
+        checkCredentials();
+
         document.getElementById("notice").addEventListener('click', function () {
-            setInterval(function () {
-                console.log("I'm alive!")
-            }, 1000);
-            connect("19990812", "Skoodle26");
+            doConnect();
         });
     };
 
+    function checkCredentials () {
+        var storage = window.localStorage;
+        username = storage.getItem("username");
+        password = storage.getItem("username");
+
+        if (username == null || password == null) {
+            showLogin();
+        }
+    }
+
+    function storeCredentials () {
+        var storage = window.localStorage;
+
+        //Get Info
+        username = document.getElementById("username").value;
+        password = document.getElementById("password").value;
+
+        //Store Info
+        storage.setItem("username", username);
+        storage.setItem("password", password);
+
+        hideLogin();
+    }
+
+    function removeCredentials () {
+        var storage = window.localStorage;
+        storage.removeItem("username");
+        storage.removeItem("password");
+        checkCredentials();
+        showNotice("Welcome", "#2980b9");
+    }
+
     function doConnect() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        console.log(username);
-        console.log(password);
-
-        connect(username, password);
+        connectDisconnect(username, password);
     }
 
     function showNotice(notice, colour) {
@@ -105,12 +134,54 @@
 
 
 <!--Login Container-->
+<style>
+    #loginContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        color: white;
+        z-index: 2;
+        font-family: Arial, sans-serif;
+        font-size: 1em;
+        background-color: #2980b9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #loginContainer h1 {
+        margin-top: 20%;
+    }
+
+    #loginContainer input {
+        width: 50%;
+        background-color: white;
+        border: none;
+        border-radius: 3px;
+        margin: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 1em;
+        text-align: center;
+    }
+</style>
+
+<script>
+    function showLogin() {
+        document.getElementById("loginContainer").style.display = "flex";
+    }
+
+    function hideLogin() {
+        $("#loginContainer").fadeOut();
+    }
+</script>
+
 <div style="display: none;" id="loginContainer">
     <h1>Login Now</h1>
     <input id="username" type="text">
     <input id="password" type="text">
-    <input type="button" value="Open" onclick="connect()">
-    <p id="status">Unknown</p>
+    <input type="button" value="Open" onclick="storeCredentials()">
 </div>
 
 <div id="statusContainer">
@@ -130,6 +201,11 @@
 </body>
 
 <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
     #statusContainer {
         position: absolute;
         bottom: 0;
@@ -140,7 +216,7 @@
         color: white;
         z-index: 2;
         font-family: Arial, sans-serif;
-        font-size: 40px;
+        font-size: 1em;
         display: flex;
         flex-direction: row;
     }
