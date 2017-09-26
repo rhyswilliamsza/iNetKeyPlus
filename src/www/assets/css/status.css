@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#statusContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20vh;
+    width: 100vw;
+    background-color: #2c3e50;
+    color: white;
+    z-index: 2;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+#balance, #monthUsage, #yearUsage {
+    position: relative;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#balance p, #monthUsage p, #yearUsage p {
+    /*max-margin: 10%;*/
+}

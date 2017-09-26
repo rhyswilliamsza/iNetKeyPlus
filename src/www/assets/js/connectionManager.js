@@ -9,6 +9,11 @@ var username = "null";
 var password = "null";
 var connected = false;
 
+/**
+ * Connect or disconnect to/from the network, based on current state.
+ * @param username Student Number of Student
+ * @param password Password of Student
+ */
 function connectDisconnect(username, password) {
     this.username = username;
     this.password = password;
@@ -23,6 +28,12 @@ function connectDisconnect(username, password) {
     }
 }
 
+/**
+ * Set the stats of the Status Bar
+ * @param balanceString current account balance
+ * @param year current year usage
+ * @param month current month usage
+ */
 function setStats(balanceString, year, month) {
     var balance = document.getElementById("balanceText");
     var yearUsage = document.getElementById("yearUsageText");
@@ -33,18 +44,28 @@ function setStats(balanceString, year, month) {
     monthUsage.innerHTML = month;
 }
 
+//Keep Alive Tracker
 var keepAlive;
 
+/**
+ * Poll to keep connection alive, if connected.
+ */
 function startKeepAlive() {
     keepAlive = setInterval(function () {
         open();
     }, 60000);
 }
 
+/**
+ * Stop keeping connection alive
+ */
 function endKeepAlive() {
     clearInterval(keepAlive);
 }
 
+/**
+ * Open the connection by sending a request to the firewall
+ */
 function open() {
     $.xmlrpc({
         url: apiURL,
@@ -66,9 +87,11 @@ function open() {
 
             //Check for Incorrect Password
             if (response[0]['resultmsg'].includes("Invalid username or password")) {
-                showNotice("!Password", "#EF4836");
+                showNotice("Re-Login", "#EF4836");
                 setStats("~", "~", "~");
-                setTimeout(removeCredentials, 2000);
+                setTimeout(function () {
+                    removeCredentials();
+                }, 2000);
             }
 
             //Connect
@@ -83,6 +106,9 @@ function open() {
     });
 }
 
+/**
+ * Close the connection by sending a request to the firewall
+ */
 function close() {
     $.xmlrpc({
         url: apiURL,
@@ -93,7 +119,6 @@ function close() {
             'reqpwd': this.password
         }],
         success: function (response, status, jqXHR) {
-            document.getElementById("status").innerHTML = response[0]['resultmsg'];
             console.log(response);
             showNotice("Closed", "#2980b9");
             setStats("~", "~", "~");

@@ -21,7 +21,7 @@ notice {
 #onenotice {
     position: absolute;
     width: 100%;
-    animation: rotate 1s alternate infinite;
+    animation: rotate 3s alternate infinite;
 }
 
 #twonotice {
@@ -29,7 +29,7 @@ notice {
     top: 8%;
     left: 8%;
     width: 84%;
-    animation: rotate 1.05s alternate infinite;
+    animation: rotate 3.1s alternate infinite;
 }
 
 #threenotice {
@@ -37,13 +37,15 @@ notice {
     top: 16%;
     left: 16%;
     width: 68%;
-    animation: rotate 1.1s alternate infinite;
+    animation: rotate 3.2s alternate infinite;
 }
 
 #noticeContainer {
     position: absolute;
     width: 50vw;
     height: 50vw;
+    max-width: 50vh;
+    max-height: 50vh;
     top: 30%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);

@@ -1,4 +1,4 @@
-# iNetKey+
+# Inetkey+
 
 #### An unofficial Stellenbosch University iNetKey App for Android and iOS
 
