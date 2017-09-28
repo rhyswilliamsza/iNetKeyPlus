@@ -1,102 +1,119 @@
 <html>
 <head>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-px">
-    <script src="cordova.js"></script>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-px">
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/jquery.xmlrpc.min.js"></script>
     <script src="assets/js/connectionManager.js"></script>
     <script src="assets/js/engine.js"></script>
+    <script src="cordova.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/login.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/notice.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/status.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/menu.css"/>
 </head>
 
 <body>
-<!--Login Container-->
-<div style="display: none;" id="loginContainer">
-    <h1>Login Now</h1>
-    <input id="username" type="text">
-    <input id="password" type="password">
-
-    <!--Accept and Store Credentials; then Hide Login Screen-->
-    <input type="button" value="Open" onclick="storeCredentials()">
+<div id="menu">
+    <img id="menuLogo" src="assets/img/icon.png">
+    <p class="menuButton" onclick="removeCredentials()">Log Out</p>
+    <p id="copy">Design by Rhys Williams</p>
 </div>
 
-<!--Notice Container-->
-<notice id="notice">
-    <div id="noticeContainer">
-        <h1 id="noticetitle">Offline</h1>
-        <svg id="onenotice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.7 271.7">
-            <defs>
-                <style>.cls-1 {
-                    fill: none;
-                    stroke: #fff;
-                    stroke-miterlimit: 10;
-                    stroke-width: 18px;
-                }
-
-                .cls-2 {
-                    fill: #fff;
-                }</style>
-            </defs>
-            <title>circle</title>
-            <path class="cls-2"
-                  d="M240.29,231.43a127.36,127.36,0,1,1,21.49-92.24l6.59-4h1.34a135.87,135.87,0,1,0-22.45,101Z"
-                  transform="translate(0 -22.65)"/>
-        </svg>
-        <svg id="twonotice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.7 271.7">
-            <defs>
-                <style>.cls-1 {
-                    fill: none;
-                    stroke: #fff;
-                    stroke-miterlimit: 10;
-                    stroke-width: 18px;
-                }
-
-                .cls-2 {
-                    fill: #fff;
-                }</style>
-            </defs>
-            <title>circle</title>
-            <path class="cls-2"
-                  d="M240.29,231.43a127.36,127.36,0,1,1,21.49-92.24l6.59-4h1.34a135.87,135.87,0,1,0-22.45,101Z"
-                  transform="translate(0 -22.65)"/>
-        </svg>
-        <svg id="threenotice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.7 271.7">
-            <defs>
-                <style>.cls-1 {
-                    fill: none;
-                    stroke: #fff;
-                    stroke-miterlimit: 10;
-                    stroke-width: 18px;
-                }
-
-                .cls-2 {
-                    fill: #fff;
-                }</style>
-            </defs>
-            <title>circle</title>
-            <path class="cls-2"
-                  d="M240.29,231.43a127.36,127.36,0,1,1,21.49-92.24l6.59-4h1.34a135.87,135.87,0,1,0-22.45,101Z"
-                  transform="translate(0 -22.65)"/>
-        </svg>
+<div id="content_container">
+    <!--Hamburger Menu Button-->
+    <div id="hamburger_button" onclick="manageMenu()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
     </div>
-</notice>
+
+    <!--Login Container-->
+    <div style="display: none;" id="loginContainer">
+        <img id="loginLogo" src="assets/img/icon.png">
+        <input id="username" placeholder="Student Number" type="text">
+        <input id="password" placeholder="Password" type="password">
+
+        <!--Accept and Store Credentials; then Hide Login Screen-->
+        <input id="submit" type="button" value="Log In" onclick="storeCredentials()">
+    </div>
+
+    <!--Notice Container-->
+    <notice id="notice">
+        <div id="noticeContainer">
+            <h1 id="noticetitle">Offline</h1>
+            <svg id="onenotice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.7 271.7">
+                <defs>
+                    <style>.cls-1 {
+                        fill: none;
+                        stroke: #fff;
+                        stroke-miterlimit: 10;
+                        stroke-width: 18px;
+                    }
+
+                    .cls-2 {
+                        fill: #fff;
+                    }</style>
+                </defs>
+                <title>circle</title>
+                <path class="cls-2"
+                      d="M240.29,231.43a127.36,127.36,0,1,1,21.49-92.24l6.59-4h1.34a135.87,135.87,0,1,0-22.45,101Z"
+                      transform="translate(0 -22.65)"/>
+            </svg>
+            <svg id="twonotice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.7 271.7">
+                <defs>
+                    <style>.cls-1 {
+                        fill: none;
+                        stroke: #fff;
+                        stroke-miterlimit: 10;
+                        stroke-width: 18px;
+                    }
+
+                    .cls-2 {
+                        fill: #fff;
+                    }</style>
+                </defs>
+                <title>circle</title>
+                <path class="cls-2"
+                      d="M240.29,231.43a127.36,127.36,0,1,1,21.49-92.24l6.59-4h1.34a135.87,135.87,0,1,0-22.45,101Z"
+                      transform="translate(0 -22.65)"/>
+            </svg>
+            <svg id="threenotice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.7 271.7">
+                <defs>
+                    <style>.cls-1 {
+                        fill: none;
+                        stroke: #fff;
+                        stroke-miterlimit: 10;
+                        stroke-width: 18px;
+                    }
+
+                    .cls-2 {
+                        fill: #fff;
+                    }</style>
+                </defs>
+                <title>circle</title>
+                <path class="cls-2"
+                      d="M240.29,231.43a127.36,127.36,0,1,1,21.49-92.24l6.59-4h1.34a135.87,135.87,0,1,0-22.45,101Z"
+                      transform="translate(0 -22.65)"/>
+            </svg>
+        </div>
+    </notice>
 
 
-<!--Status Container-->
-<div id="statusContainer">
-    <div id="balance">
-        <p id="balanceText">~</p>
-        <p>Balance</p>
-    </div>
-    <div id="monthUsage">
-        <p id="monthUsageText">~</p>
-        <p>Month</p>
-    </div>
-    <div id="yearUsage">
-        <p id="yearUsageText">~</p>
-        <p>Year</p>
+    <!--Status Container-->
+    <div id="statusContainer">
+        <div id="balance">
+            <p id="balanceText">~</p>
+            <p>Balance</p>
+        </div>
+        <div id="monthUsage">
+            <p id="monthUsageText">~</p>
+            <p>Month</p>
+        </div>
+        <div id="yearUsage">
+            <p id="yearUsageText">~</p>
+            <p>Year</p>
+        </div>
     </div>
 </div>
 </body>

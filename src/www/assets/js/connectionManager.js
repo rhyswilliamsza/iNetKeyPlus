@@ -96,7 +96,7 @@ function open() {
 
             //Connect
             if (response[0]['resultmsg'].includes("Success")) {
-                showNotice("R" + parseInt(response[0]['balance']), "#27ae60");
+                showNotice("Connected", "#27ae60");
                 setStats("R" + parseInt(response[0]['balance']), "R" + parseInt(response[0]['yearusage']), "R" + parseInt(response[0]['monthusage']));
             }
         },

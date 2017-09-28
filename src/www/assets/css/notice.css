@@ -1,3 +1,4 @@
+/* Notice Elements */
 notice {
     position: absolute;
     background-color: #363636;
@@ -21,7 +22,6 @@ notice {
 #onenotice {
     position: absolute;
     width: 100%;
-    animation: rotate 3s alternate infinite;
 }
 
 #twonotice {
@@ -29,7 +29,6 @@ notice {
     top: 8%;
     left: 8%;
     width: 84%;
-    animation: rotate 3.1s alternate infinite;
 }
 
 #threenotice {
@@ -37,7 +36,6 @@ notice {
     top: 16%;
     left: 16%;
     width: 68%;
-    animation: rotate 3.2s alternate infinite;
 }
 
 #noticeContainer {
