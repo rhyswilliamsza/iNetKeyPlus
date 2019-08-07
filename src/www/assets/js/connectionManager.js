@@ -53,7 +53,7 @@ var keepAlive;
 function startKeepAlive() {
     keepAlive = setInterval(function () {
         open();
-    }, 60000);
+    }, 300000);
 }
 
 /**

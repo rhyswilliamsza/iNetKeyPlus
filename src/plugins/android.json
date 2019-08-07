@@ -1,25 +1,25 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
     },
-    "installed_plugins": {
-        "cordova-plugin-background-mode": {
-            "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
-        }
-    },
-    "dependent_plugins": {
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
-        }
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "za.co.rhyswilliams.inetkeyplus"
+    }
+  }
 }

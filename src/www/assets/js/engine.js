@@ -177,7 +177,7 @@ function enable_background() {
             bigText: false
         });
 
-        cordova.plugins.backgroundMode.enable();
+        cordova.plugins.backgroundMode.setEnabled(true);
         cordova.plugins.backgroundMode.overrideBackButton();
 
         ready = true;
@@ -203,7 +203,6 @@ function set_notification(message, colour) {
         });
     }
 }
-
 
 /**
  * Check that user is connected to wifi

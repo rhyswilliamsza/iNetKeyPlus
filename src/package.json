@@ -1,8 +1,8 @@
 {
     "name": "iNetKeyPlus",
     "displayName": "iNetKeyPlus",
-    "version": "0.0.1",
-    "description": "A simple android appliation for connecting to Stellenbosch University's network",
+    "version": "1.0.3",
+    "description": "A simple app for connecting to Stellenbosch University's network",
     "main": "index.js",
     "scripts": {
         "install_android": "cordova run android",
@@ -11,22 +11,20 @@
     "author": "Rhys Williams",
     "license": "Apache-2.0",
     "dependencies": {
-        "cordova-android": "^6.2.3",
-        "cordova-ios": "^4.4.0",
-        "cordova-plugin-background-mode": "^0.7.2",
-        "cordova-plugin-device": "^1.1.6",
+        "cordova-android": "^8.0.0",
+        "cordova-plugin-background-mode": "^0.7.3",
+        "cordova-plugin-device": "^2.0.3",
         "cordova-plugin-network-information": "^1.3.3",
         "cordova-plugin-whitelist": "^1.3.2"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-background-mode": {},
-            "cordova-plugin-network-information": {}
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-background-mode": {}
         },
         "platforms": [
-            "android",
-            "ios"
+            "android"
         ]
     }
 }
